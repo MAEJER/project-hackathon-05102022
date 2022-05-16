@@ -8,7 +8,7 @@ class LocalSettings:
     DEBUG = True
     GIT_API_URL = "https://api.github.com"
     GIT_ORG = "MAEJER"
-    GIT_TOKEN = "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"
+    GIT_TOKEN = ""
     GIT_REQUESTS_HEADER = {
                 "Acccept": "application/vnd.github.v3+json"
             }
