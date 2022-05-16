@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+<!-- ================================= PAGE CONTENT ================================= -->
+{% block content %}
+<br>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h3>Hostname {{ hostname }}</h3>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <form name="form" method="post" action="">{% csrf_token %}
+            <div class="form-group">
+            <label for="appnameInput">Host Apps:</label>
+                <div class="input-group" id="appnameInput">
+                    <select name="appname" class="form-control" id="appnameSelect">
+                        {% for app_name in apps %}
+                        <option value="{{ app_name }}">{{ app_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <small id="appnameHelp" class="form-text text-muted">Choose App for More Info</small>
+            </div>
+        </form>
+    </div>
+</div>
+<br>
+
+{% endblock content %}

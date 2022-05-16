@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block navbar-content %}
+<div class="row">
+<div class="col">
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Disabled</a>
+    </li>
+  </ul>
+</div>
+</div>
+{% endblock navbar-content %}
+
+<!-- ================================= PAGE CONTENT ================================= -->
+{% block content %}
+
+<div class="card">
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
+        {{ label }}
+    </h3>
+</div>
+<br>
+<div>{{ whitelists }}</div>
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">AppName</th>
+                <th scope="col">Logfile</th>
+                <th scope="col">Source Type</th>
+                <th scope="col">Index</th>
+                <th scope="col">META</th>
+                <th scope="col">TRANSPORT</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for input in inputs%}
+                    <tr>
+                        <td scope="row">{{ input.app_name }}</td>
+                        <td scope="row">{{ input.name }}</td>
+                        <td scope="row">{{ input.sourcetype }}</td>
+                        <td scope="row">{{ input.index }}</td>
+                        <td scope="row">{{ input.meta }}</td>
+                        <td scope="row">{{ input.tcp_transport }}</td>
+                        <td>[DEL] [MOD] [COPY]</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock content %}

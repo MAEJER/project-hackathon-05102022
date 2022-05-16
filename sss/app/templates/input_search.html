@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="demo_info" class="box"></div>
+    <div id="example_wrapper" class="dataTables_wrapper">
+
+        <table id="example" class="display dataTable" style="width:100%" aria-describedby="example_info">
+        <thead>
+            <tr>
+              <th class="sorting sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="AppName: activate to sort column descending" style="width: 131.172px;">
+                AppName
+              </th>
+              <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="LogFile: activate to sort column ascending" style="width: 218.172px;">
+                LogFile
+              </th>
+              <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="SourceType: activate to sort column ascending" style="width: 96.9688px;">
+                SourceType
+              </th>
+              <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Index: activate to sort column ascending" style="width: 39.0156px;">
+                Index
+              </th>
+              <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Meta: activate to sort column ascending" style="width: 85.5469px;">
+                Meta
+              </th>
+              <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="TCPTransport: activate to sort column ascending" style="width: 73.3125px;">
+                TCPTransport
+              </th>
+              <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 73.3125px;">
+                Action
+              </th>
+            </tr>
+        </thead>
+        <tbody>
+          {% for input in inputs%}
+          <tr class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
+            <td class="sorting_1">{{ input.app_name }}</td>
+            <td>{{ input.name }}</td>
+            <td>{{ input.my_sourcetype }}</td>
+            <td>{{ input.my_index }}</td>
+            <td>{{ input.my_meta }}</td>
+            <td>{{ input.my_tcp_transport }}</td>
+            <td>[DEL] [MOD] [COPY]</td>
+          </tr>
+      {% endfor %}
+          </tbody>
+        <tfoot>
+            <tr>
+              <th rowspan="1" colspan="1">
+                AppName
+              </th>
+              <th rowspan="1" colspan="1">
+                LogFile
+              </th>
+              <th rowspan="1" colspan="1">
+                SourceType
+              </th>
+              <th rowspan="1" colspan="1">
+                Index
+              </th>
+              <th rowspan="1" colspan="1">
+                Meta
+              </th>
+              <th rowspan="1" colspan="1">
+                TCPTransport
+              </th>
+              <th rowspan="1" colspan="1">
+                Action
+              </th>
+            </tr>
+        </tfoot>
+    </table>
+    {% endblock content %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+<!-- ================================= PAGE CONTENT ================================= -->
+{% block content %}
+<br>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <form name="form" method="post" action="">{% csrf_token %}
+            <div class="form-group">
+            <label for="hostnameInput">Search Apps by Host Name</label>
+                <div class="input-group" id="hostnameInput">
+                    <input name="hostname" type="text" class="form-control"  aria-describedby="hostnameHelp" placeholder="Enter Host Name" required pattern="^[a-zA-Z][a-zA-Z\d-]{1,22}[a-zA-Z\d]$">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        or...
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <form name="form" method="post" action="">{% csrf_token %}
+            <div class="form-group">
+            <label for="appnameInput">Select App From Drop Down</label>
+                <div class="input-group" id="appnameInput">
+                    <select name="appname" class="form-control" id="appnameSelect">
+                        {% for app_name in apps %}
+                        <option value="{{ app_name }}">{{ app_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        or...
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <form name="form" method="post" action="">{% csrf_token %}
+            <div class="form-group">
+            <label for="appnameInput">View ALL Inputs [No sha checks]</label>
+                <div class="input-group" id="appnameInput">
+                    <input type="hidden" id="allinputs" name="allinputs" value="allinputs">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</div>
+<br>
+{% endblock content %}

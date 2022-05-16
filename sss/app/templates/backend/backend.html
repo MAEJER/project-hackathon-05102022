@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+<!-- NAVBAR Content-->
+{% block navbar-content %}
+<i class="fa-solid fa-server"></i>&nbsp;&nbsp;Apps
+{% endblock navbar-content %}
+
+{% block navbar-button %}
+<a href="{% url 'logout' %}" class="btn btn-light btn-sm" id="btn-nav">Logout</a>
+{% endblock navbar-button %}
+
+<!-- ================================= PAGE CONTENT ================================= -->
+{% block content %}
+<h1 class="text-center text-success">Welcome {{ user }}</h1>
+<br>View App Info
+<br>View Server Info
+
+{% endblock content %}
